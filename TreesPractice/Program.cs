@@ -56,6 +56,7 @@ namespace TreesPractice
             double weightedHeight = optimalTree.CalculateWeightedHeight();
             int totalWeight = typeof(OptimalBinarySearchTree).GetMethod("GetTotalWeight", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)?
                 .Invoke(optimalTree, new object[] { optimalTree.Root }) as int? ?? 0;
+            // TODO: fix null reference exception in optimalTree
 
             Console.WriteLine($"\nСредневзвешенная высота оптимального дерева: {(totalWeight > 0 ? weightedHeight / totalWeight : 0):F2}");
 
