@@ -1,0 +1,14 @@
+c:\Users\pyramidheadshark\Repos\AlgorythmsTrees\TreesPractice\bin\Debug\net9.0\TreesPractice.exe
+c:\Users\pyramidheadshark\Repos\AlgorythmsTrees\TreesPractice\bin\Debug\net9.0\TreesPractice.deps.json
+c:\Users\pyramidheadshark\Repos\AlgorythmsTrees\TreesPractice\bin\Debug\net9.0\TreesPractice.runtimeconfig.json
+c:\Users\pyramidheadshark\Repos\AlgorythmsTrees\TreesPractice\bin\Debug\net9.0\TreesPractice.dll
+c:\Users\pyramidheadshark\Repos\AlgorythmsTrees\TreesPractice\bin\Debug\net9.0\TreesPractice.pdb
+c:\Users\pyramidheadshark\Repos\AlgorythmsTrees\TreesPractice\obj\Debug\net9.0\TreesPractice.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\pyramidheadshark\Repos\AlgorythmsTrees\TreesPractice\obj\Debug\net9.0\TreesPractice.AssemblyInfoInputs.cache
+c:\Users\pyramidheadshark\Repos\AlgorythmsTrees\TreesPractice\obj\Debug\net9.0\TreesPractice.AssemblyInfo.cs
+c:\Users\pyramidheadshark\Repos\AlgorythmsTrees\TreesPractice\obj\Debug\net9.0\TreesPractice.csproj.CoreCompileInputs.cache
+c:\Users\pyramidheadshark\Repos\AlgorythmsTrees\TreesPractice\obj\Debug\net9.0\TreesPractice.dll
+c:\Users\pyramidheadshark\Repos\AlgorythmsTrees\TreesPractice\obj\Debug\net9.0\refint\TreesPractice.dll
+c:\Users\pyramidheadshark\Repos\AlgorythmsTrees\TreesPractice\obj\Debug\net9.0\TreesPractice.pdb
+c:\Users\pyramidheadshark\Repos\AlgorythmsTrees\TreesPractice\obj\Debug\net9.0\TreesPractice.genruntimeconfig.cache
+c:\Users\pyramidheadshark\Repos\AlgorythmsTrees\TreesPractice\obj\Debug\net9.0\ref\TreesPractice.dll
