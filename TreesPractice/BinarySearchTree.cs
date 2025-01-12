@@ -1,8 +1,7 @@
 // BinarySearchTree.cs
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Text;
+
 
 namespace TreesPractice
 {
@@ -15,25 +14,25 @@ namespace TreesPractice
             Root = null;
         }
 
-        public virtual void Add(int data, int? weight = null)
+        public virtual void Add(int data)
         {
-            Root = Insert(Root, data, weight);
+            Root = Insert(Root, data);
         }
 
-        protected virtual TreeNode? Insert(TreeNode? node, int data, int? weight)
+        protected virtual TreeNode? Insert(TreeNode? node, int data)
         {
             if (node == null)
             {
-                return new TreeNode(data, weight);
+                return new TreeNode(data);
             }
 
             if (data < node.Data)
             {
-                node.Left = Insert(node.Left, data, weight);
+                node.Left = Insert(node.Left, data);
             }
             else if (data > node.Data)
             {
-                node.Right = Insert(node.Right, data, weight);
+                node.Right = Insert(node.Right, data);
             }
 
             return node;
@@ -41,15 +40,19 @@ namespace TreesPractice
 
         public void UnionWithPreorder(BinarySearchTree otherTree)
         {
-            if (otherTree.Root != null)
+            if (otherTree?.Root != null)
             {
-                using (var iterator = otherTree.GetPreorderIterator())
-                {
-                    while (iterator.MoveNext())
-                    {
-                        Add(iterator.Current);
-                    }
-                }
+                PreorderTraversalAction(otherTree.Root, data => Add(data));
+            }
+        }
+
+        protected void PreorderTraversalAction(TreeNode? node, Action<int> action)
+        {
+            if (node != null)
+            {
+                action(node.Data);
+                PreorderTraversalAction(node.Left, action);
+                PreorderTraversalAction(node.Right, action);
             }
         }
 
@@ -59,31 +62,28 @@ namespace TreesPractice
             {
                 return "(пустое дерево)";
             }
-            return GetTreeString(Root);
+            var sb = new StringBuilder();
+            PrintTree(Root, "", true, sb, false);
+            return sb.ToString();
         }
 
-        private string GetTreeString(TreeNode? node, string indent = "", bool isLeft = false, bool hasSibling = false)
+        protected void PrintTree(TreeNode? node, string indent, bool isLast, StringBuilder sb, bool showWeight)
         {
-            if (node == null)
+            if (node != null)
             {
-                return "";
+                sb.Append(indent);
+                sb.Append(isLast ? "└─" : "├─");
+                sb.Append(node.Data);
+                if (showWeight && node.Weight.HasValue)
+                {
+                    sb.Append($"({node.Weight})");
+                }
+                sb.AppendLine();
+
+                string newIndent = indent + (isLast ? "  " : "│ ");
+                PrintTree(node.Left, newIndent, node.Right == null, sb, showWeight);
+                PrintTree(node.Right, newIndent, true, sb, showWeight);
             }
-
-            var sb = new StringBuilder();
-            sb.Append(indent);
-            sb.Append(isLeft ? "├── " : "└── ");
-            sb.Append(node.Data);
-            if (node.Weight.HasValue)
-            {
-                sb.Append($"({node.Weight})");
-            }
-            sb.AppendLine();
-
-            string childIndent = indent + (hasSibling ? "│   " : "    ");
-            sb.Append(GetTreeString(node.Left, childIndent, true, node.Right != null));
-            sb.Append(GetTreeString(node.Right, childIndent, false, false));
-
-            return sb.ToString();
         }
 
         public IEnumerator<int> GetEnumerator()
@@ -94,11 +94,6 @@ namespace TreesPractice
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
-        }
-
-        public PreorderIterator GetPreorderIterator()
-        {
-            return new PreorderIterator(this);
         }
     }
 }

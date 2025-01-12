@@ -1,6 +1,4 @@
 // TreeNode.cs
-
-
 namespace TreesPractice
 {
     public class TreeNode

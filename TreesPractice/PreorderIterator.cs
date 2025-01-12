@@ -1,7 +1,5 @@
 // PreorderIterator.cs
 using System.Collections;
-using System.Collections.Generic;
-
 
 
 namespace TreesPractice
@@ -9,8 +7,6 @@ namespace TreesPractice
     public class PreorderIterator : IEnumerator<int>
     {
         private Stack<TreeNode> stack;
-        private int _current;
-        private bool _canReturnCurrent; // Флаг, показывающий, можно ли возвращать Current
 
         public PreorderIterator(BinarySearchTree tree)
         {
@@ -19,18 +15,13 @@ namespace TreesPractice
             {
                 stack.Push(tree.Root);
             }
-            _canReturnCurrent = false;
         }
 
         public int Current
         {
             get
             {
-                if (!_canReturnCurrent)
-                {
-                    throw new InvalidOperationException("Итератор находится вне последовательности.");
-                }
-                return _current;
+                return stack.Peek().Data;
             }
         }
 
@@ -42,20 +33,17 @@ namespace TreesPractice
         {
             if (stack.Count > 0)
             {
-                TreeNode currentNode = stack.Pop();
-                _current = currentNode.Data;
-                if (currentNode.Right != null)
+                TreeNode current = stack.Pop();
+                if (current.Right != null)
                 {
-                    stack.Push(currentNode.Right);
+                    stack.Push(current.Right);
                 }
-                if (currentNode.Left != null)
+                if (current.Left != null)
                 {
-                    stack.Push(currentNode.Left);
+                    stack.Push(current.Left);
                 }
-                _canReturnCurrent = true; // Теперь можно возвращать Current
                 return true;
             }
-            _canReturnCurrent = false; // Больше нет элементов
             return false;
         }
 

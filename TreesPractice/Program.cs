@@ -1,9 +1,4 @@
 // Program.cs
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-
 namespace TreesPractice
 {
     public class Program
@@ -17,8 +12,7 @@ namespace TreesPractice
             Random random = new Random();
 
             Console.WriteLine("Исходное дерево A:");
-            List<int> initialA = Enumerable.Range(0, 10).Select(_ => random.Next(1, 100)).ToList();
-            foreach (var value in initialA)
+            foreach (var value in Enumerable.Range(0, 10).Select(_ => random.Next(1, 100)))
             {
                 treeA.Add(value);
                 Console.Write($"{value} ");
@@ -27,8 +21,7 @@ namespace TreesPractice
             Console.WriteLine($"Дерево A:\n{treeA}");
 
             Console.WriteLine("\nИсходное дерево B:");
-            List<int> initialB = Enumerable.Range(0, 7).Select(_ => random.Next(1, 100)).ToList();
-            foreach (var value in initialB)
+            foreach (var value in Enumerable.Range(0, 7).Select(_ => random.Next(1, 100)))
             {
                 treeB.Add(value);
                 Console.Write($"{value} ");
