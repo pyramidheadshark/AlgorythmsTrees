@@ -12,3 +12,4 @@ c:\Users\pyramidheadshark\Repos\AlgorythmsTrees\TreesPractice\obj\Debug\net9.0\r
 c:\Users\pyramidheadshark\Repos\AlgorythmsTrees\TreesPractice\obj\Debug\net9.0\TreesPractice.pdb
 c:\Users\pyramidheadshark\Repos\AlgorythmsTrees\TreesPractice\obj\Debug\net9.0\TreesPractice.genruntimeconfig.cache
 c:\Users\pyramidheadshark\Repos\AlgorythmsTrees\TreesPractice\obj\Debug\net9.0\ref\TreesPractice.dll
+c:\Users\pyramidheadshark\Repos\AlgorythmsTrees\TreesPractice\obj\Debug\net9.0\TreesPractice.sourcelink.json
